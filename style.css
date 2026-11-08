@@ -1,0 +1,802 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    background: #1f242d;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 25px 9%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
+
+    background: #1f242d;
+}
+
+
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+
+.logo:hover {
+    color: #7cf03d;
+}
+
+
+.navbar ul {
+    display: flex;
+}
+
+
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+
+
+.navbar ul li a {
+    font-size: 18px;
+    font-weight: 500;
+
+    transition: 0.4s;
+}
+
+
+.navbar ul li:hover a,
+.navbar ul li.active a {
+    color: #7cf03d;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.home {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 100vh;
+
+    padding: 100px 9% 50px;
+
+    color: #fff;
+
+    gap: 60px;
+}
+
+
+/* =========================
+   HOME INFORMATION
+========================= */
+
+.home-info {
+    max-width: 620px;
+}
+
+
+.home-info h1 {
+    font-size: 55px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+.home-info h2 {
+    font-size: 32px;
+
+    margin: 10px 0 20px;
+
+    font-weight: 600;
+}
+
+
+.home-info h2 span {
+    color: transparent;
+
+    -webkit-text-stroke: 0.7px #7cf03d;
+
+    animation: textColor 3s linear infinite;
+}
+
+
+@keyframes textColor {
+
+    0% {
+        color: transparent;
+    }
+
+    50% {
+        color: #7cf03d;
+    }
+
+    100% {
+        color: transparent;
+    }
+
+}
+
+
+/* =========================
+   PARAGRAPH
+========================= */
+
+.home-info p {
+    font-size: 15px;
+
+    margin-bottom: 30px;
+
+    line-height: 1.8;
+
+    color: #e4e4e4;
+}
+
+
+/* =========================
+   BUTTON + SOCIAL
+========================= */
+
+.btn-sci {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.btn {
+    display: inline-block;
+
+    padding: 12px 30px;
+
+    background: #7cf03d;
+
+    border: 2px solid #7cf03d;
+
+    border-radius: 40px;
+
+    color: #1f242d;
+
+    font-weight: 600;
+
+    transition: 0.4s;
+
+    box-shadow: 0 0 12px rgba(124, 240, 61, 0.3);
+}
+
+
+.btn:hover {
+    background: transparent;
+
+    color: #7cf03d;
+
+    box-shadow: 0 0 20px rgba(124, 240, 61, 0.5);
+}
+
+
+/* =========================
+   SOCIAL ICONS
+========================= */
+
+.sci {
+    display: flex;
+
+    gap: 12px;
+}
+
+
+.sci a {
+    display: inline-flex;
+
+    width: 45px;
+    height: 45px;
+
+    border: 2px solid #7cf03d;
+
+    border-radius: 50%;
+
+    justify-content: center;
+    align-items: center;
+
+    color: #7cf03d;
+
+    font-size: 18px;
+
+    transition: 0.4s;
+}
+
+
+.sci a:hover {
+    background: #7cf03d;
+
+    color: #1f242d;
+
+    box-shadow: 0 0 20px #7cf03d;
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   PROFILE IMAGE AREA
+========================================================= */
+
+.home-img {
+    width: 420px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================================================
+   IMAGE BOX
+
+   IMPORTANT:
+   overflow: visible করা হয়েছে যাতে green ring
+   photo-এর বাইরে দেখা যায়।
+========================================================= */
+
+.home-img .img-box {
+
+    position: relative;
+
+    width: 390px;
+    height: 390px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    overflow: visible;
+
+    animation: imageFloat 4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   MAIN GREEN ROTATING ARC
+
+   Reference image-এর মতো incomplete circular ring
+========================================================= */
+
+.home-img .img-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 390px;
+    height: 390px;
+
+    top: 0;
+    left: 0;
+
+    border-radius: 50%;
+
+    /* Thin green circular arc */
+    background: conic-gradient(
+
+        from 0deg,
+
+        transparent 0deg,
+
+        transparent 25deg,
+
+        rgba(124, 240, 61, 0.08) 55deg,
+
+        rgba(124, 240, 61, 0.25) 95deg,
+
+        rgba(124, 240, 61, 0.55) 135deg,
+
+        #7cf03d 175deg,
+
+        rgba(124, 240, 61, 0.80) 205deg,
+
+        rgba(124, 240, 61, 0.35) 235deg,
+
+        rgba(124, 240, 61, 0.12) 270deg,
+
+        transparent 315deg,
+
+        transparent 360deg
+    );
+
+    /* Makes the conic gradient a thin ring */
+    -webkit-mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 5px),
+        #000 calc(100% - 4px)
+    );
+
+    mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 5px),
+        #000 calc(100% - 4px)
+    );
+
+    animation: rotateRing 7s linear infinite;
+
+    filter:
+        drop-shadow(0 0 4px #7cf03d)
+        drop-shadow(0 0 10px rgba(124, 240, 61, 0.35));
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   SOFT SECOND ARC
+
+   Very subtle — reference-এর soft/faded অংশের জন্য
+========================================================= */
+
+.home-img .img-box::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 390px;
+    height: 390px;
+
+    top: 0;
+    left: 0;
+
+    border-radius: 50%;
+
+    background: conic-gradient(
+
+        from 180deg,
+
+        transparent 0deg,
+
+        transparent 80deg,
+
+        rgba(124, 240, 61, 0.05) 120deg,
+
+        rgba(124, 240, 61, 0.12) 180deg,
+
+        transparent 235deg,
+
+        transparent 360deg
+    );
+
+    -webkit-mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 3px),
+        #000 calc(100% - 2px)
+    );
+
+    mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 3px),
+        #000 calc(100% - 2px)
+    );
+
+    animation: rotateSoftRing 10s linear infinite;
+
+    opacity: 0.5;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   ROTATION
+========================================================= */
+
+@keyframes rotateRing {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes rotateSoftRing {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+
+}
+
+
+/* =========================================================
+   PHOTO CONTAINER
+========================================================= */
+
+.img-item {
+
+    position: relative;
+
+    width: 350px;
+    height: 350px;
+
+    background: #1f242d;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    z-index: 2;
+
+    /* No thick green border */
+    border: 5px solid #1f242d;
+
+    box-shadow:
+        0 0 10px rgba(0, 0, 0, 0.25),
+        inset 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   PROFILE PHOTO
+========================================================= */
+
+.img-item img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    border-radius: 50%;
+
+    display: block;
+
+    transition: 0.5s ease;
+}
+
+
+/* =========================================================
+   PHOTO HOVER
+========================================================= */
+
+.img-item:hover img {
+
+    transform: scale(1.04);
+
+}
+
+
+/* =========================================================
+   FLOATING PHOTO
+========================================================= */
+
+@keyframes imageFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+        padding: 25px 5%;
+    }
+
+
+    .home {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    .home-info h1 {
+        font-size: 48px;
+    }
+
+
+    .home-info h2 {
+        font-size: 28px;
+    }
+
+
+    .home-img {
+        width: 380px;
+    }
+
+
+    .home-img .img-box {
+        width: 350px;
+        height: 350px;
+    }
+
+
+    .home-img .img-box::before,
+    .home-img .img-box::after {
+        width: 350px;
+        height: 350px;
+    }
+
+
+    .img-item {
+        width: 315px;
+        height: 315px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .navbar {
+
+        padding: 18px 6%;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .navbar ul {
+
+        gap: 20px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    .navbar ul li {
+
+        margin-left: 0;
+    }
+
+
+    .navbar ul li a {
+
+        font-size: 14px;
+    }
+
+
+    .home {
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+        padding: 170px 6% 60px;
+
+        gap: 60px;
+    }
+
+
+    .home-info {
+
+        max-width: 100%;
+    }
+
+
+    .home-info h1 {
+
+        font-size: 42px;
+    }
+
+
+    .home-info h2 {
+
+        font-size: 24px;
+    }
+
+
+    .home-info p {
+
+        font-size: 14px;
+    }
+
+
+    .btn-sci {
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+
+    .home-img {
+
+        width: 100%;
+    }
+
+
+    .home-img .img-box {
+
+        width: 320px;
+        height: 320px;
+    }
+
+
+    .home-img .img-box::before,
+    .home-img .img-box::after {
+
+        width: 320px;
+        height: 320px;
+    }
+
+
+    .img-item {
+
+        width: 285px;
+        height: 285px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .logo {
+
+        font-size: 25px;
+    }
+
+
+    .navbar ul {
+
+        gap: 12px;
+    }
+
+
+    .navbar ul li a {
+
+        font-size: 12px;
+    }
+
+
+    .home {
+
+        padding-top: 180px;
+    }
+
+
+    .home-info h1 {
+
+        font-size: 34px;
+    }
+
+
+    .home-info h2 {
+
+        font-size: 20px;
+    }
+
+
+    .home-info p {
+
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+
+    .btn {
+
+        padding: 10px 24px;
+
+        font-size: 14px;
+    }
+
+
+    .sci a {
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 16px;
+    }
+
+
+    .home-img .img-box {
+
+        width: 270px;
+        height: 270px;
+    }
+
+
+    .home-img .img-box::before,
+    .home-img .img-box::after {
+
+        width: 270px;
+        height: 270px;
+    }
+
+
+    .img-item {
+
+        width: 240px;
+        height: 240px;
+    }
+
+}
